@@ -6,7 +6,6 @@ const Playing = (props) => {
     const names=props.names;
     const idx1 = props.nameIdxs[0];
     const idx2 = props.nameIdxs[1];
-    console.log(props);
     return (
         <>
         <div id='game-container'>

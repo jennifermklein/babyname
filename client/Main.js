@@ -60,8 +60,10 @@ export default class Main extends React.Component {
   }
 
   updateCards(nameId){
-    console.log('clicked',nameId)
-    console.log(this.state.choices);
+    let betterIdx = this.state.choices.indexOf(nameId-1);
+    let worseIdx = this.state.choices[Math.abs(betterIdx-1)];
+    let better = dummyData[nameId-1];
+    let worse = dummyData[worseIdx];
     this.setState({
       choices: this.getRandomNameIdxs(),
       favorites: [...this.state.favorites,dummyData[nameId-1]]
