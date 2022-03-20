@@ -3,16 +3,19 @@ import NameCard from './NameCard';
 import SidePanel from './SidePanel';
 
 const Playing = (props) => {
+    const names=props.names;
+    const idx1 = props.nameIdxs[0];
+    const idx2 = props.nameIdxs[1];
     return (
         <>
         <div id='game-container'>
             <h1>Click on the name you like better</h1>
             <div id='card-container'>
-                <NameCard id='left-card' name={props.names[0]}/>
-                <NameCard id='right-card' name={props.names[1]}/>
+                <NameCard clickHandler={props.clickHandler} id='left-card' name={names[idx1]}/>
+                <NameCard clickHandler={props.clickHandler} id='right-card' name={names[idx2]}/>
             </div>
         </div>
-        <SidePanel names={props.names}/>
+        <SidePanel names={props.favorites}/>
         </>
     )
 }

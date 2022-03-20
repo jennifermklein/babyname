@@ -2,8 +2,8 @@ import React from 'react'
 
 const NameCard = (props) => {
     return (
-        <div id={props.id} className='name-card'>
-            <h2>{props.name}</h2>
+        <div id={props.id} className='name-card' onClick={() => props.clickHandler(props.name.id)}>
+            <h2>{props.name.name}</h2>
         </div>
     )
 }
