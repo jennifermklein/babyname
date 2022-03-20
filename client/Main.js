@@ -3,6 +3,7 @@ import NameCard from './NameCard'
 import SidePanel from './SidePanel'
 import SettingsBox from './SettingsBox'
 import Welcome from './Welcome'
+import Playing from './Playing'
 
 const dummyData = [
   'Jenny',
@@ -43,21 +44,13 @@ export default class Main extends React.Component {
   render () {
     return (
       <div id='main'>
-          {this.state.status === 'welcome' ? <Welcome clickHandler={this.clickWelcome}/> :
-          (this.state.status === 'settings' ?
-          <>
-            <div id='main-container'>
-            <SettingsBox submitHandler={this.submitSettings}/> 
-            </div>
-          </>
-          : <>
-            <div id='main-container'>
-              <NameCard name={dummyData[0]}/>
-              <NameCard name={dummyData[1]}/>
-            </div>
-            <SidePanel names={dummyData}/>
-          </>
-          )}
+        <div id='main-container'>
+        {this.state.status === 'welcome' ?
+            <Welcome clickHandler={this.clickWelcome}/> :
+        (this.state.status === 'settings' ?
+            <SettingsBox submitHandler={this.submitSettings}/> :
+            <Playing names={dummyData}/> )}
+        </div>
       </div>
     )
   }
