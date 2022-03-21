@@ -8,8 +8,8 @@ const SettingsBox = (props) => {
             <h2>Settings</h2>
             <form>
                 <input value={props.year} min='1890' max="2022" id='year' name='year' type='range' onChange={props.handleYearChange}></input>
-                <span>Show me names that were popular in {props.year} for
-                <select className='submit-settings' name='gender' onChange={props.handleSelect}>
+                <span>Show me the top<input value={props.pop} min='1' max='99' type='number' onChange={props.handlePopChange}></input>% of names that were popular in {props.year} for
+                <select name='gender' onChange={props.handleSelect}>
                     <option defaultValue="anyone">anyone</option>
                     <option value="girls">girls</option>
                     <option value="boys">boys</option>

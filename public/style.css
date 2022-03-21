@@ -30,6 +30,7 @@ body,
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  color: #303c6c;
 }
 
 #card-container {
@@ -48,7 +49,7 @@ body,
   justify-content: center;
   align-items: center;
   padding: 3%;
-  box-shadow: 2px 2px 2px gray;
+  box-shadow: 2px 2px 2px #303c6c;
   background-color: #f4976c;
   color: #303c6c;
   font-size: 28pt;
@@ -116,7 +117,7 @@ body,
   width: 50%;
   justify-content: space-around;
   align-items: center;
-  padding: 4%;
+  padding: 5%;
   flex-direction: column;
   background-color: #f4976c;
   color: #303c6c;
@@ -168,13 +169,24 @@ input[type="range"]::-webkit-slider-thumb {
   background: #303c6c;
 }
 
-select {
+select,
+input[type="number"] {
   text-align: left;
   margin-left: 3px;
   border: none;
+  color: #303c6c;
   background-color: #b4dfe5;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16pt;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  width: 1.5rem;
 }
 
 #welcome-box {

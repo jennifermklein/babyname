@@ -27,11 +27,13 @@ export default class Main extends React.Component {
       choices: [],
       favorites: [],
       year: 1985,
-      gender: 'anyone'
+      gender: 'anyone',
+      popularity: 10
     }
-    this.submitSettings = this.submitSettings.bind(this);
     this.selectYear = this.selectYear.bind(this);
     this.selectGender = this.selectGender.bind(this);
+    this.selectPopularity = this.selectPopularity.bind(this);
+    this.submitSettings = this.submitSettings.bind(this);
     this.clickWelcome = this.clickWelcome.bind(this);
     this.updateCards = this.updateCards.bind(this);
   }
@@ -39,14 +41,6 @@ export default class Main extends React.Component {
   componentDidMount() {
     this.setState({
       choices: this.getRandomNameIdxs()
-    })
-  }
-
-  submitSettings(){
-    console.log(this.state.year)
-    console.log(this.state.gender)
-    this.setState({
-      status: 'playing'
     })
   }
 
@@ -62,6 +56,20 @@ export default class Main extends React.Component {
 
   selectGender(event) {
     this.setState({gender: event.target.value});
+  }
+
+  selectPopularity(event) {
+    this.setState({popularity: event.target.value});
+  }
+
+  submitSettings(){
+    console.log('year:',this.state.year)
+    console.log('gender:',this.state.gender)
+    console.log('popularity:',this.state.popularity)
+    // query database for names based on settings
+    this.setState({
+      status: 'playing'
+    })
   }
 
   getRandomNameIdxs(){
@@ -111,7 +119,7 @@ export default class Main extends React.Component {
         {this.state.status === 'welcome' ?
             <Welcome clickHandler={this.clickWelcome}/> :
         (this.state.status === 'settings' ?
-            <SettingsBox submitHandler={this.submitSettings} handleSelect={this.selectGender} handleYearChange={this.selectYear} year={this.state.year}/> :
+            <SettingsBox submitHandler={this.submitSettings} handleSelect={this.selectGender} handleYearChange={this.selectYear} handlePopChange={this.selectPopularity} pop={this.state.popularity} year={this.state.year}/> :
             <Playing clickHandler={this.updateCards} favorites={this.state.favorites.slice(0,10)} choices={this.state.choices}/> )}
         </div>
       </div>
