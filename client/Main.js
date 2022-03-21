@@ -56,17 +56,37 @@ export default class Main extends React.Component {
     while (idx1 === idx2) {
       idx2 = Math.floor(Math.random()*dummyData.length);
     }
-    return [idx1,idx2]
+    return [dummyData[idx1],dummyData[idx2]]
   }
 
-  updateCards(nameId){
-    let betterIdx = this.state.choices.indexOf(nameId-1);
-    let worseIdx = this.state.choices[Math.abs(betterIdx-1)];
-    let better = dummyData[nameId-1];
-    let worse = dummyData[worseIdx];
+  updateCards(better){
+    let worse;
+    this.state.choices[0] === better ? worse = this.state.choices[1] : worse = this.state.choices[0];
+    let betterIdx = this.state.favorites.indexOf(better);
+    let worseIdx = this.state.favorites.indexOf(worse);
+    let newFavs = [...this.state.favorites];
+
+    // neither in list yet, add both to end
+    if (betterIdx < 0 && worseIdx < 0) {
+      newFavs.push(better,worse);
+    }
+    // better in list but not worse, add worse to end
+    else if (worseIdx < 0) {
+      newFavs.push(worse);
+    }
+    // better ranked behind worse, remove from list and place in front of worse
+    else if (betterIdx > worseIdx) {
+      newFavs.splice(betterIdx,1);
+      newFavs.splice(worseIdx,0,better);
+    }
+    // better not yet in list, place in front of worse
+    else if (betterIdx < 0) {
+      newFavs.splice(worseIdx,0,better);
+    }
+
     this.setState({
       choices: this.getRandomNameIdxs(),
-      favorites: [...this.state.favorites,dummyData[nameId-1]]
+      favorites: newFavs
     })
   }
 
@@ -78,7 +98,7 @@ export default class Main extends React.Component {
             <Welcome clickHandler={this.clickWelcome}/> :
         (this.state.status === 'settings' ?
             <SettingsBox submitHandler={this.submitSettings}/> :
-            <Playing clickHandler={this.updateCards} favorites={this.state.favorites.slice(0,10)} names={dummyData} nameIdxs={this.state.choices}/> )}
+            <Playing clickHandler={this.updateCards} favorites={this.state.favorites.slice(0,10)} choices={this.state.choices}/> )}
         </div>
       </div>
     )
