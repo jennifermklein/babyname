@@ -1,6 +1,4 @@
 import React from 'react'
-import NameCard from './NameCard'
-import SidePanel from './SidePanel'
 import SettingsBox from './SettingsBox'
 import Welcome from './Welcome'
 import Playing from './Playing'
@@ -17,6 +15,8 @@ const dummyData = [
   {id: 9, name: 'Andrew'},
   {id: 10, name: 'Nicole'},
   {id: 11, name: 'Sarah'},
+  {id: 12, name: 'Valerie'},
+  {id: 13, name: 'Leonard'},
 ]
 
 export default class Main extends React.Component {
@@ -26,8 +26,12 @@ export default class Main extends React.Component {
       status: 'welcome',
       choices: [],
       favorites: [],
+      year: 1985,
+      gender: 'anyone'
     }
     this.submitSettings = this.submitSettings.bind(this);
+    this.selectYear = this.selectYear.bind(this);
+    this.selectGender = this.selectGender.bind(this);
     this.clickWelcome = this.clickWelcome.bind(this);
     this.updateCards = this.updateCards.bind(this);
   }
@@ -39,6 +43,8 @@ export default class Main extends React.Component {
   }
 
   submitSettings(){
+    console.log(this.state.year)
+    console.log(this.state.gender)
     this.setState({
       status: 'playing'
     })
@@ -48,6 +54,14 @@ export default class Main extends React.Component {
     this.setState({
       status: 'settings'
     })
+  }
+
+  selectYear(event) {
+    this.setState({year: event.target.value});
+  }
+
+  selectGender(event) {
+    this.setState({gender: event.target.value});
   }
 
   getRandomNameIdxs(){
@@ -97,7 +111,7 @@ export default class Main extends React.Component {
         {this.state.status === 'welcome' ?
             <Welcome clickHandler={this.clickWelcome}/> :
         (this.state.status === 'settings' ?
-            <SettingsBox submitHandler={this.submitSettings}/> :
+            <SettingsBox submitHandler={this.submitSettings} handleSelect={this.selectGender} handleYearChange={this.selectYear} year={this.state.year}/> :
             <Playing clickHandler={this.updateCards} favorites={this.state.favorites.slice(0,10)} choices={this.state.choices}/> )}
         </div>
       </div>

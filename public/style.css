@@ -130,9 +130,9 @@ body,
   width: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   background-color: #b4dfe5;
-  padding: 8%;
+  padding: 10%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16pt;
 }
@@ -141,18 +141,40 @@ body,
   background-color: #fbe8a6;
   color: #303c6c;
   border: none;
-  width: 50%;
-  margin: 0px auto;
+  width: 60%;
+  margin: 30px auto 30px auto;
   height: 30%;
-  width: 50%;
   border-radius: 8px;
   box-shadow: 1px 1px 1px #303c6c;
   font-size: 18pt;
   cursor: pointer;
+  text-align: center;
 }
 
 #submit-settings:hover {
   box-shadow: 2px 2px 2px #303c6c;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-bottom: 30px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #303c6c;
+}
+
+select {
+  text-align: left;
+  margin-left: 3px;
+  border: none;
+  background-color: #b4dfe5;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16pt;
 }
 
 #welcome-box {
