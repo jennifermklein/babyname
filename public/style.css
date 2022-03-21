@@ -48,11 +48,15 @@ body,
   width: 25%;
   justify-content: center;
   align-items: center;
-  padding: 3%;
+  padding: 4%;
   box-shadow: 2px 2px 2px #303c6c;
   background-color: #f4976c;
   color: #303c6c;
-  font-size: 28pt;
+  font-size: 22pt;
+}
+
+.name-card > * {
+  overflow: auto;
 }
 
 #left-card {
@@ -101,14 +105,17 @@ body,
   color: #303c6c;
   padding: 10px;
   border-left: 1px solid #303c6c;
-  /* margin-left: auto; */
 }
 
 #name-list {
   background-color: #d2fdff;
   padding: 5%;
   font-size: 16pt;
-  width: 50%;
+  width: 60%;
+}
+
+#name-list > * {
+  overflow: auto;
 }
 
 #settings-box {
@@ -117,33 +124,34 @@ body,
   width: 50%;
   justify-content: space-around;
   align-items: center;
-  padding: 5%;
+  padding: 4%;
   flex-direction: column;
   background-color: #f4976c;
   color: #303c6c;
   font-family: "Chango";
-  font-size: 24pt;
+  font-size: 22pt;
 }
 
 #settings-box > form {
   text-align: center;
-  height: 50%;
+  height: 60%;
   width: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   background-color: #b4dfe5;
   padding: 10%;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16pt;
+  font-size: 18pt;
+  margin-bottom: 30px;
 }
 
 #submit-settings {
   background-color: #fbe8a6;
   color: #303c6c;
   border: none;
-  width: 60%;
-  margin: 30px auto 30px auto;
+  width: 30%;
+  margin: 60px auto 0px auto;
   height: 30%;
   border-radius: 8px;
   box-shadow: 1px 1px 1px #303c6c;
@@ -177,7 +185,7 @@ input[type="number"] {
   color: #303c6c;
   background-color: #b4dfe5;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16pt;
+  font-size: inherit;
 }
 
 input::-webkit-outer-spin-button,
@@ -186,7 +194,7 @@ input::-webkit-inner-spin-button {
 }
 
 input[type="number"] {
-  width: 1.5rem;
+  width: 1.8rem;
 }
 
 #welcome-box {
