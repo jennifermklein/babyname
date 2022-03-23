@@ -122,46 +122,48 @@ body,
   display: flex;
   height: 50%;
   width: 50%;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding: 4%;
+  padding: 1%;
   flex-direction: column;
   background-color: #f4976c;
   color: #303c6c;
   font-family: "Chango";
   font-size: 22pt;
+  min-width: 300px;
+  min-height: 400px;
+  max-width: 500px;
+  max-height: 500px;
 }
 
 #settings-box > form {
-  text-align: center;
-  height: 60%;
-  width: 80%;
   display: flex;
+  text-align: center;
+  justify-content: space-between;
   flex-direction: column;
-  justify-content: center;
   background-color: #b4dfe5;
   padding: 10%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18pt;
-  margin-bottom: 30px;
+  overflow: auto;
 }
 
 #submit-settings {
   background-color: #fbe8a6;
   color: #303c6c;
   border: none;
-  width: 30%;
-  margin: 60px auto 0px auto;
-  height: 30%;
+  width: 100px;
+  height: 50px;
+  margin: 30px auto 0px auto;
   border-radius: 8px;
-  box-shadow: 1px 1px 1px #303c6c;
+  box-shadow: 2px 2px 2px #303c6c;
   font-size: 18pt;
   cursor: pointer;
   text-align: center;
 }
 
 #submit-settings:hover {
-  box-shadow: 2px 2px 2px #303c6c;
+  box-shadow: 3px 3px 3px #303c6c;
 }
 
 input[type="range"] {
@@ -180,7 +182,6 @@ input[type="range"]::-webkit-slider-thumb {
 select,
 input[type="number"] {
   text-align: left;
-  margin-left: 3px;
   border: none;
   color: #303c6c;
   background-color: #b4dfe5;
@@ -202,6 +203,17 @@ input[type="number"] {
   height: 40%;
   width: 50%;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#welcome-box:hover {
+  cursor: pointer;
+}
+
+#main-logo {
+  display: flex;
+  justify-content: center;
   align-items: flex-start;
   flex-direction: row;
   font-family: "Chango";
@@ -209,8 +221,14 @@ input[type="number"] {
   color: #303c6c;
 }
 
-#welcome-box:hover {
-  cursor: pointer;
+#under-logo {
+  font-family: "Inspiration";
+  font-size: 38pt;
+  color: #b4dfe5;
+  margin: -110px 0px 0px 0px;
+  z-index: 2;
+  white-space: nowrap;
+  text-shadow: 1px 1px 1px #303c6c;
 }
 
 #logo-bottom {
